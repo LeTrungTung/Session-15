@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #idtext {
+        width: 200px;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="idmang" onclick="makeArray()">
+      Khởi tạo 1 mảng có 10 số nguyên khác nhau:
+    </button>
+    <input type="text" , id="idtext" value="" />
+    <h3>Phần tử Max của mảng là:</h3>
+    <p id="idMaxValue"></p>
+    <p id="idposition"></p>
+    <p>Giá trị trung bình của Mảng là:</p>
+    <p id="idAverage"></p>
+
+    <script>
+      function makeArray() {
+        //  Tạo mảng ngẫu nhiên gồm 10 số khác nhau và gán vào Input value
+        const inputArray = document.querySelector("#idtext");
+        let arrayRandom = [];
+        let count = 0;
+        while (count < 10) {
+          element = Math.floor(Math.random() * 30);
+          if (arrayRandom.includes(element) == false) {
+            arrayRandom.push(element);
+            count++;
+          }
+        }
+        console.log(arrayRandom.toString());
+        inputArray.value = arrayRandom.toString();
+
+        // Tìm max và vị trí của phần tử
+        let max = arrayRandom[0];
+        let pos = 0;
+        for (let i = 0; i < arrayRandom.length; i++) {
+          if (arrayRandom[i] > max) {
+            max = arrayRandom[i];
+            pos = i;
+          }
+        }
+        const maxValue = document.querySelector("#idMaxValue");
+        const posValue = document.querySelector("#idposition");
+        maxValue.innerHTML = "Giá trị lớn nhất trong mảng là: " + max;
+        posValue.innerHTML =
+          "Vị trí số lớn nhất trong mảng là: " + pos;
+
+        //   Tính giá trị trung bình
+        const averageValue = document.querySelector("#idAverage");
+        let total = 0;
+
+        for (let i = 0; i < arrayRandom.length; i++) {
+          total += arrayRandom[i];
+        }
+        average = total / arrayRandom.length;
+        averageValue.innerHTML = average.toFixed(2);
+      }
+    </script>
+  </body>
+</html>

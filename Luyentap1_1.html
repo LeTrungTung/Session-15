@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      #idtext {
+        width: 200px;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="idmang" onclick="makeArray()">
+      Khởi tạo 1 mảng có 10 số nguyên:
+    </button>
+    <input type="text" , id="idtext" value="" />
+    <h3>Các số nguyên lớn hơn hoặc bằng 10 là:</h3>
+    <p id="idresult"></p>
+
+    <script>
+      function makeArray() {
+        //  Tạo mảng ngẫu nhiên và gán vào Input value
+        const inputArray = document.querySelector("#idtext");
+        let arrayRandom = [];
+        for (let i = 0; i < 10; i++) {
+          element = Math.floor(Math.random() * 20);
+          console.log(element);
+          arrayRandom.push(element);
+        }
+        console.log(arrayRandom.toString());
+        inputArray.value = arrayRandom.toString();
+
+        //  Kiểm tra phần tử >=10
+        const listNumber = document.querySelector("#idresult");
+        let bigNumber = "";
+        let count = 0;
+        for (let j = 0; j < arrayRandom.length; j++) {
+          if (arrayRandom[j] >= 10) {
+            count++;
+            bigNumber +=
+              "Số thứ " + count + " là: " + arrayRandom[j] + "<br>";
+          }
+        }
+        if (count == 0) {
+          bigNumber = "Mảng không có số lớn hơn hoặc bằng 10.";
+        }
+        listNumber.innerHTML = bigNumber;
+      }
+    </script>
+  </body>
+</html>
