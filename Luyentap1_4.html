@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Bài 4 -->
+    <label for=""
+      >Nhập vào một mảng gồm các số nguyên: (các phần tử cách nhau
+      bằng dấu ',')
+    </label>
+    <br />
+    <br />
+    <input type="text" id="idtext" oninput="inputArray(this)" />
+    <br /><br />
+    <button id="btnreverse" onclick="reverseArray()">
+      Đảo ngược mảng
+    </button>
+    <br /><br />
+    <label for="">Kết quả mảng sau khi đảo ngược: </label>
+    <p id="idresult"></p>
+    <script>
+      let myArray = [];
+      function inputArray(element) {
+        const str = element.value;
+        myArray = str.split(",");
+        console.log(myArray);
+      }
+      console.log(33, myArray);
+      function reverseArray() {
+        let resultArray = [];
+        for (let j = myArray.length - 1; j >= 0; j--) {
+          resultArray.push(myArray[j]);
+        }
+        console.log(55, resultArray);
+        document.querySelector("#idresult").innerHTML = resultArray;
+      }
+    </script>
+  </body>
+</html>
