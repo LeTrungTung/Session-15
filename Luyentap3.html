@@ -41,11 +41,16 @@
     <table id="idtable" style="width: 500px"></table>
     <script>
       let myArray = [];
+      let updateArray = [];
       let resultTable = [];
       function handleAdd() {
         const valueText = document.querySelector("#idtext").value;
+        // gán = bảng hiện tại đang cập nhật
+        myArray = updateArray;
+        // add giá trị trong input text vào mảng
         myArray.push(valueText);
         console.log(11, myArray);
+
         renderProduct(myArray);
       }
 
@@ -74,10 +79,56 @@
         document.querySelector("#idtable").rows[
           x
         ].cells[1].innerHTML = valueUpdate;
+
+        resultTable = document.querySelector("#idtable").innerHTML;
+        console.log("new", resultTable);
+        console.log(
+          "row",
+          document.querySelector("#idtable").rows.length
+        );
+
+        // update lại giá trị của mảng Array
+        lengthArrayUpdate =
+          document.querySelector("#idtable").rows.length;
+        updateArray = [];
+        for (let i = 0; i < lengthArrayUpdate - 1; i++) {
+          updateArray.push(
+            document.querySelector("#idtable").rows[i + 1].cells[1]
+              .innerHTML
+          );
+        }
+        console.log("updateARR", updateArray);
       }
 
       function deleteValue(x) {
+        // gán = bảng hiện tại đang cập nhật
+
         document.querySelector("#idtable").deleteRow(x);
+
+        // update lại giá trị của mảng Array
+        lengthArrayUpdate =
+          document.querySelector("#idtable").rows.length;
+        updateArray = [];
+        for (let i = 0; i < lengthArrayUpdate - 1; i++) {
+          updateArray.push(
+            document.querySelector("#idtable").rows[i + 1].cells[1]
+              .innerHTML
+          );
+        }
+        console.log("updateARR", updateArray);
+        renderProduct(updateArray);
+
+        // // update lại giá trị của mảng Array
+        // lengthArrayUpdate =
+        //   document.querySelector("#idtable").rows.length;
+        // updateArray = [];
+        // for (let i = 0; i < lengthArrayUpdate - 1; i++) {
+        //   updateArray.push(
+        //     document.querySelector("#idtable").rows[i + 1].cells[1]
+        //       .innerHTML
+        //   );
+        // }
+        // console.log("updateARR1", updateArray);
       }
     </script>
   </body>
