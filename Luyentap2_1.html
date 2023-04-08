@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="1,2,3,..." id="idinput" />
+    <button id="btnAdd" onclick="addData()">Add</button>
+    <br /><br />
+    <button id="btnView" onclick="viewData()">View</button>
+    <p id="iddoubleArray"></p>
+
+    <script>
+      let miniArray = [];
+      let fullArray = [];
+      function addData() {
+        const rowsValue = document.querySelector("#idinput").value;
+        console.log(11, rowsValue);
+        miniArray = rowsValue.split(",");
+        console.log(22, miniArray);
+        // console.log(
+        //   "ktra",
+        //   miniArray.map((x) => x * 2)
+        // );
+        fullArray.push(miniArray + "<br>");
+        console.log(33, fullArray);
+      }
+
+      function viewData() {
+        document.querySelector("#iddoubleArray").innerHTML =
+          fullArray;
+      }
+    </script>
+  </body>
+</html>

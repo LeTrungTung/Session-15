@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="">Nhập vào một mảng a </label>
+    <input
+      type="text"
+      id="idtexta"
+      placeholder="1,23,45,..."
+      oninput="inputArrayA(this)"
+    />
+    <br /><br />
+    <label for="">Nhập vào một mảng b </label>
+    <input
+      type="text"
+      id="idtextb"
+      placeholder="1,23,45,..."
+      oninput="inputArrayB(this)"
+    />
+    <br /><br />
+    <button id="btnkq" onclick="ArrayC">Kết quả mảng c là:</button>
+    <input type="text" id="idresult" />
+
+    <script>
+      let rsarrayA = [];
+      let rsarrayB = [];
+      function inputArrayA(a) {
+        const stra = a.value;
+        rsarrayA = stra.split(",");
+      }
+      function inputArrayB(b) {
+        const strb = b.value;
+        rsarrayB = strb.split(",");
+      }
+
+      console.log(rsarrayA);
+      console.log(rsarrayB);
+    </script>
+  </body>
+</html>
